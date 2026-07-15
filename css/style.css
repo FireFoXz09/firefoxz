@@ -203,10 +203,6 @@ h3 { font-size: 1.5rem; }
   transition: background 0.2s, color 0.2s;
 }
 
-.hero .cta:hover {
-  background: var(--accent);
-}
-
 .social-row {
   display: flex;
   justify-content: flex-start;
@@ -839,6 +835,95 @@ section.dark h2 {
   font-size: 1.4rem;
   color: var(--accent);
   padding: 30px 0 0;
+}
+
+/* ---------- Animations ---------- */
+
+/* Scroll-triggered fade-in for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero cascade entrance */
+.hero-cascade {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+
+.hero-cascade.delay-1 { animation-delay: 0.05s; }
+.hero-cascade.delay-2 { animation-delay: 0.15s; }
+.hero-cascade.delay-3 { animation-delay: 0.25s; }
+.hero-cascade.delay-4 { animation-delay: 0.35s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-section,
+  .hero-cascade {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Project card hover lift */
+.project-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 4px;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12);
+}
+
+/* Social icon hover scale */
+.header-social a,
+.social-row a {
+  display: inline-flex;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.header-social a:hover,
+.social-row a:hover {
+  transform: scale(1.15);
+}
+
+/* CTA button fill sweep */
+.hero .cta {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.hero .cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.hero .cta:hover::before {
+  transform: scaleX(1);
 }
 
 /* ---------- Responsive ---------- */
