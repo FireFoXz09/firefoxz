@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FireFoXz - Portfolio</title>
+<meta name="description" content="Portfolio de kits de diffusion et graphiques broadcast créés par FireFoXz.">
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html"><img src="images/logo.png" alt="FireFoXz"></a>
+    <div class="header-nav-group">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos de...</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+          <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        </ul>
+      </nav>
+      <div class="header-social">
+        <a href="https://www.facebook.com/FireFoXz" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+        </a>
+        <a href="https://twitter.com/firefoxz09" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 512 512"><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53 51.7 63.7 129.3 105.3 216.4 109.8-1.6-7.8-2.6-15.9-2.6-24 0-57.8 46.8-104.9 104.9-104.9 30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3z"/></svg>
+        </a>
+        <a href="https://www.twitch.tv/firefoxz" target="_blank" rel="noopener" aria-label="Twitch">
+          <svg viewBox="0 0 512 512"><path d="M391.17 233.34H352.1V115.19h39.07m-102.68 118.15h-39.07V115.19h39.07M120.83 0L24.31 96.53v318.95h109.7V512l96.53-96.53h77.22L487.69 233.5V0m-39.07 213.83l-77.22 77.22h-77.22l-67.6 67.6v-67.6h-86v-260h309.85z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCemagqxzx14eBoCXz4G3X2g" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 576 512"><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/guillaumelariviere/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-340a53.72 53.72 0 1 1 53.72-53.71 53.72 53.72 0 0 1-53.72 53.71zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.3-79.3-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page-header has-bg" style="background-image:url('images/hero/portfolio.jpg');">
+  <div class="container">
+    <h1>Portfolio</h1>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+
+    <div class="kit-grid" id="kit-grid"></div>
+
+    <div class="kit-detail" id="kit-detail">
+      <button class="kit-detail-back" onclick="closeKitDetail()">&#8249; Retour aux projets</button>
+      <div class="kit-detail-header">
+        <h2 id="kit-detail-title"></h2>
+        <div class="kit-years" id="kit-detail-years"></div>
+      </div>
+      <div class="photo-grid" id="kit-detail-grid"></div>
+    </div>
+
+  </div>
+</section>
+
+<p class="firehype">Fist bump. High five. Et bienvenue dans le #firehype!</p>
+
+<footer class="site-footer">
+  <div class="container">
+    <a class="logo" href="index.html"><img src="images/logo.png" alt="FireFoXz"></a>
+    <p>© 2026 <a href="index.html">firefoxz.ca</a></p>
+    <p style="margin-top:14px;">Courriel: <a href="mailto:ppcfirefoxz@gmail.com">ppcfirefoxz@gmail.com</a></p>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">&times;</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)" aria-label="Précédent">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="caption" id="lightbox-caption"></p>
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1)" aria-label="Suivant">&#8250;</button>
+</div>
+
+<script src="portfolio-kits-data.js"></script>
+<script>
+const kitGrid = document.getElementById('kit-grid');
+const kitDetail = document.getElementById('kit-detail');
+const kitDetailTitle = document.getElementById('kit-detail-title');
+const kitDetailYears = document.getElementById('kit-detail-years');
+const kitDetailGrid = document.getElementById('kit-detail-grid');
+
+let currentKitImages = [];
+let currentIndex = 0;
+
+// Build the grid of kit cards
+portfolioKits.forEach((kit, kitIndex) => {
+  const card = document.createElement('div');
+  card.className = 'kit-card';
+  card.onclick = () => openKitDetail(kitIndex);
+  card.innerHTML = `
+    <img class="kit-cover" src="${kit.cover}" alt="${kit.name}" loading="lazy">
+    <div class="kit-info">
+      <h3>${kit.name}</h3>
+      <div class="kit-years">${kit.years}</div>
+      <div class="kit-count">${kit.images.length} image${kit.images.length > 1 ? 's' : ''}</div>
+    </div>
+  `;
+  kitGrid.appendChild(card);
+});
+
+function openKitDetail(kitIndex) {
+  const kit = portfolioKits[kitIndex];
+  currentKitImages = kit.images;
+
+  kitDetailTitle.textContent = kit.name;
+  kitDetailYears.textContent = kit.years;
+
+  kitDetailGrid.innerHTML = '';
+  kit.images.forEach((im, i) => {
+    const fig = document.createElement('figure');
+    fig.onclick = () => openLightbox(i);
+    fig.innerHTML = `<img src="${im.local_path}" alt="${im.title}" loading="lazy"><figcaption>${im.title}</figcaption>`;
+    kitDetailGrid.appendChild(fig);
+  });
+
+  kitGrid.classList.add('hidden');
+  kitDetail.classList.add('open');
+  window.scrollTo({ top: kitDetail.offsetTop - 100, behavior: 'smooth' });
+}
+
+function closeKitDetail() {
+  kitGrid.classList.remove('hidden');
+  kitDetail.classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Lightbox (operates on currentKitImages)
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+
+function openLightbox(index) {
+  currentIndex = index;
+  updateLightbox();
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(direction) {
+  currentIndex = (currentIndex + direction + currentKitImages.length) % currentKitImages.length;
+  updateLightbox();
+}
+
+function updateLightbox() {
+  const photo = currentKitImages[currentIndex];
+  lightboxImg.src = photo.local_path;
+  lightboxImg.alt = photo.title;
+  lightboxCaption.textContent = photo.title;
+}
+
+lightbox.addEventListener('click', function(e) {
+  if (e.target === lightbox) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (lightbox.classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  } else if (kitDetail.classList.contains('open') && e.key === 'Escape') {
+    closeKitDetail();
+  }
+});
+</script>
+
+</body>
+</html>
