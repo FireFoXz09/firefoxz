@@ -285,10 +285,42 @@ section.dark h2 {
   color: var(--white);
 }
 
-/* ---------- Twitch embed ---------- */
+/* ---------- Twitch / Bienvenue split layout ---------- */
+.welcome-layout {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.welcome-layout .text {
+  flex: 1 1 340px;
+}
+
+.welcome-layout .text h2 {
+  text-align: left;
+}
+
+.welcome-layout .text p {
+  margin-bottom: 14px;
+}
+
+.welcome-layout .social-row {
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.welcome-layout .social-row a {
+  color: var(--black);
+}
+
+.welcome-layout .social-row a:hover {
+  color: var(--accent);
+}
+
 .twitch-embed-wrap {
-  max-width: 720px;
-  margin: 36px auto 0;
+  flex: 1 1 420px;
+  max-width: 480px;
   position: relative;
   aspect-ratio: 16/9;
   background: #000;
@@ -300,6 +332,13 @@ section.dark h2 {
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+@media (max-width: 800px) {
+  .twitch-embed-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 /* ---------- Project cards (Accueil) ---------- */
@@ -334,22 +373,82 @@ section.dark h2 {
 /* ---------- Galerie preview block ---------- */
 .gallery-preview {
   display: flex;
-  gap: 40px;
+  gap: 60px;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.gallery-preview img {
-  flex: 1 1 400px;
-  border: 1px solid #eee;
-}
-
 .gallery-preview .text {
-  flex: 1 1 300px;
+  flex: 1 1 320px;
 }
 
 .gallery-preview .text h2 {
   text-align: left;
+}
+
+.photo-stack {
+  flex: 0 0 260px;
+  width: 260px;
+  height: 260px;
+  position: relative;
+}
+
+.photo-stack img {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border: 6px solid var(--white);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-stack img:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: rotate(-7deg);
+  z-index: 1;
+}
+
+.photo-stack img:nth-child(2) {
+  top: 10px;
+  left: 60px;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+
+.photo-stack img:nth-child(3) {
+  top: 60px;
+  left: 20px;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+.photo-stack img:nth-child(4) {
+  top: 68px;
+  left: 78px;
+  transform: rotate(8deg);
+  z-index: 4;
+}
+
+.photo-stack:hover img {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 700px) {
+  .photo-stack {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+  }
+  .photo-stack img {
+    width: 150px;
+    height: 150px;
+  }
+  .photo-stack img:nth-child(2) { left: 55px; }
+  .photo-stack img:nth-child(3) { top: 50px; left: 15px; }
+  .photo-stack img:nth-child(4) { top: 56px; left: 65px; }
 }
 
 .btn {
