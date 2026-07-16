@@ -1,6 +1,6 @@
 const portfolioKits = [
   {
-    "name": "Rebelles de Sorel-Tracy",
+    "name": "Rebelles du Cégep de Sorel-Tracy",
     "years": "2024-2025",
     "cover": "portfolio/portfolio-01.png",
     "images": [
@@ -194,6 +194,53 @@ const portfolioKits = [
       {
         "title": "Écran de victoire",
         "local_path": "portfolio/portfolio-39.png"
+      }
+    ]
+  },
+  {
+    "name": "Ligue Québécoise de League of Legends",
+    "years": "2026",
+    "cover": "portfolio/portfolio-40.jpg",
+    "images": [
+      {
+        "title": "Matchs à venir",
+        "local_path": "portfolio/portfolio-40.jpg"
+      },
+      {
+        "title": "Avant-match",
+        "local_path": "portfolio/portfolio-41.jpg"
+      },
+      {
+        "title": "Derniers résultats",
+        "local_path": "portfolio/portfolio-42.jpg"
+      },
+      {
+        "title": "Présentation du match",
+        "local_path": "portfolio/portfolio-43.jpg"
+      },
+      {
+        "title": "Alignement de départ",
+        "local_path": "portfolio/portfolio-44.jpg"
+      },
+      {
+        "title": "Écran de reprise",
+        "local_path": "portfolio/portfolio-45.jpg"
+      },
+      {
+        "title": "Sélection des champions",
+        "local_path": "portfolio/portfolio-46.jpg"
+      },
+      {
+        "title": "Overlay de jeu avec Baron Nashor",
+        "local_path": "portfolio/portfolio-47.jpg"
+      },
+      {
+        "title": "Overlay de jeu avec Dragon Élémentaire",
+        "local_path": "portfolio/portfolio-48.jpg"
+      },
+      {
+        "title": "Résultat de la partie",
+        "local_path": "portfolio/portfolio-49.jpg"
       }
     ]
   }

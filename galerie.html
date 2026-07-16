@@ -13,7 +13,10 @@
 <header class="site-header">
   <div class="container">
     <a class="logo" href="index.html"><img src="images/logo.png" alt="FireFoXz"></a>
-    <div class="header-nav-group">
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-nav-group" id="header-nav-group">
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -51,7 +54,7 @@
   </div>
 </div>
 
-<section class="fade-in-section">
+<section>
   <div class="container">
     <div class="photo-grid" id="photo-grid">
       <figure onclick="openLightbox(0)"><img src="gallery/photo-01.jpg" alt="Opération LoL Québec - Mars 2014" loading="lazy"><figcaption>Opération LoL Québec - Mars 2014</figcaption></figure>

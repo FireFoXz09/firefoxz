@@ -13,7 +13,10 @@
 <header class="site-header">
   <div class="container">
     <a class="logo" href="index.html"><img src="images/logo.png" alt="FireFoXz"></a>
-    <div class="header-nav-group">
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="header-nav-group" id="header-nav-group">
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Accueil</a></li>
@@ -57,7 +60,7 @@
     <div class="kit-grid" id="kit-grid"></div>
 
     <div class="kit-detail" id="kit-detail">
-      <button class="kit-detail-back" onclick="closeKitDetail()">&#8249; Retour aux projets</button>
+      <button class="kit-detail-back" onclick="closeKitDetail(event)">&#8249; Retour aux projets</button>
       <div class="kit-detail-header">
         <h2 id="kit-detail-title"></h2>
         <div class="kit-years" id="kit-detail-years"></div>
@@ -98,11 +101,25 @@ const kitDetailGrid = document.getElementById('kit-detail-grid');
 let currentKitImages = [];
 let currentIndex = 0;
 
-// Build the grid of kit cards
-portfolioKits.forEach((kit, kitIndex) => {
+// Extract the last (or only) year from a "years" string like "2022-2023" or "2026"
+// so kits can be sorted with the most recent / ongoing projects first.
+function getSortYear(yearsStr) {
+  const matches = yearsStr.match(/\d{4}/g);
+  if (!matches) return 0;
+  return parseInt(matches[matches.length - 1], 10);
+}
+
+// Build a sorted list of {kit, originalIndex} so clicks still reference
+// the correct entry in the original portfolioKits array.
+const sortedKits = portfolioKits
+  .map((kit, originalIndex) => ({ kit, originalIndex }))
+  .sort((a, b) => getSortYear(b.kit.years) - getSortYear(a.kit.years));
+
+// Build the grid of kit cards, most recent first
+sortedKits.forEach(({ kit, originalIndex }) => {
   const card = document.createElement('div');
   card.className = 'kit-card';
-  card.onclick = () => openKitDetail(kitIndex);
+  card.onclick = () => openKitDetail(originalIndex);
   card.innerHTML = `
     <img class="kit-cover" src="${kit.cover}" alt="${kit.name}" loading="lazy">
     <div class="kit-info">
@@ -129,15 +146,38 @@ function openKitDetail(kitIndex) {
     kitDetailGrid.appendChild(fig);
   });
 
-  kitGrid.classList.add('hidden');
-  kitDetail.classList.add('open');
-  window.scrollTo({ top: kitDetail.offsetTop - 100, behavior: 'smooth' });
+  // Fade out the grid, then swap to the detail view and fade it in
+  kitGrid.classList.add('fading');
+
+  setTimeout(() => {
+    kitGrid.classList.add('hidden');
+    kitGrid.classList.remove('fading');
+
+    kitDetail.classList.add('open');
+    // Force a reflow so the opacity transition triggers reliably
+    void kitDetail.offsetWidth;
+    kitDetail.classList.add('visible');
+  }, 350);
 }
 
-function closeKitDetail() {
-  kitGrid.classList.remove('hidden');
-  kitDetail.classList.remove('open');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function closeKitDetail(event) {
+  if (event) event.preventDefault();
+  const scrollBefore = window.scrollY;
+
+  // Fade out the detail view, then swap back to the grid and fade it in
+  kitDetail.classList.remove('visible');
+
+  setTimeout(() => {
+    kitDetail.classList.remove('open');
+
+    kitGrid.classList.remove('hidden');
+    kitGrid.classList.add('fading');
+    void kitGrid.offsetWidth;
+    kitGrid.classList.remove('fading');
+
+    // Restore scroll position in case the browser shifted it during the transition
+    window.scrollTo(0, scrollBefore);
+  }, 350);
 }
 
 // Lightbox (operates on currentKitImages)
