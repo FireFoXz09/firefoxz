@@ -24,6 +24,7 @@ html {
 body {
   font-family: 'Oswald', Arial, sans-serif;
   font-weight: 300;
+  font-size: 18px;
   background: var(--white);
   color: var(--black);
   line-height: 1.6;
@@ -453,18 +454,33 @@ section.dark h2 {
 
 .btn {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
   background: var(--accent);
+  border: 2px solid var(--accent);
   color: var(--white);
-  padding: 12px 28px;
+  padding: 10px 28px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.9rem;
   margin-top: 16px;
-  transition: background 0.2s;
+  transition: color 0.3s ease;
 }
 
-.btn:hover {
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: var(--accent-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
 }
 
 /* ---------- Quote block ---------- */
@@ -555,13 +571,22 @@ section.dark h2 {
   margin-bottom: 20px;
 }
 
+.bio-text p {
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+
+.bio-text p:last-child {
+  margin-bottom: 0;
+}
+
 .bio {
   max-width: 800px;
   margin: 0 auto;
 }
 
 .bio p {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 @media (max-width: 800px) {
@@ -578,6 +603,138 @@ section.dark h2 {
   }
 }
 
+/* ---------- Stats strip ---------- */
+.stats-strip {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  text-align: center;
+}
+
+.stats-strip .stat {
+  flex: 1 1 200px;
+  padding: 0 24px;
+  border-left: 1px solid #eee;
+}
+
+.stats-strip .stat:first-child {
+  border-left: none;
+}
+
+.stats-strip .stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stats-strip .stat-label {
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+  .stats-strip .stat {
+    border-left: none;
+    border-top: 1px solid #eee;
+    padding: 20px 12px 0;
+  }
+  .stats-strip .stat:first-child {
+    border-top: none;
+  }
+}
+
+/* ---------- Services grid ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.service-card {
+  text-align: center;
+  padding: 30px 20px;
+  border: 1px solid #eee;
+}
+
+.service-card .service-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 16px;
+  color: var(--accent);
+}
+
+.service-card .service-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.service-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.92rem;
+}
+
+/* ---------- Bio CTA ---------- */
+.bio-cta {
+  text-align: center;
+}
+
+.bio-cta .btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.bio-cta .btn-row .btn {
+  margin-top: 0;
+}
+
+.bio-cta .btn-outline {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid var(--black);
+  color: var(--black);
+  padding: 10px 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.bio-cta .btn-outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: -1;
+}
+
+.bio-cta .btn-outline:hover::before {
+  transform: scaleX(1);
+}
+
+.bio-cta .btn-outline:hover {
+  color: var(--white);
+}
+
 /* ---------- Projects page (timeline) ---------- */
 .timeline {
   max-width: 800px;
@@ -586,8 +743,8 @@ section.dark h2 {
 
 .timeline-item {
   display: flex;
-  gap: 24px;
-  padding: 20px 0;
+  gap: 28px;
+  padding: 24px 0;
   border-bottom: 1px solid #eee;
   align-items: center;
 }
@@ -600,12 +757,13 @@ section.dark h2 {
 }
 
 .timeline-item .timeline-thumb {
-  flex: 0 0 140px;
-  width: 140px;
-  height: 90px;
+  flex: 0 0 220px;
+  width: 220px;
+  height: 140px;
   object-fit: cover;
   background: #f0f0f0;
-  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
 }
 
 .timeline-item .timeline-text {
@@ -1030,7 +1188,7 @@ section.dark h2 {
   .hero h1 { font-size: 2.6rem; }
   h2 { font-size: 1.7rem; }
   .main-nav ul { justify-content: center; }
-  .timeline-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .timeline-item { flex-direction: column; align-items: flex-start; gap: 14px; }
   .timeline-item .years { flex: none; }
-  .timeline-item .timeline-thumb { width: 100%; flex: none; height: 160px; }
+  .timeline-item .timeline-thumb { width: 100%; flex: none; height: 200px; }
 }
