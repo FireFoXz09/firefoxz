@@ -275,5 +275,53 @@ const portfolioKits = [
         "local_path": "portfolio/portfolio-55.jpg"
       }
     ]
+  },
+  {
+    "name": "Hockey - Rebelles de Sorel-Tracy",
+    "years": "2023-2026",
+    "description": "Projet graphique pour la diffusion des parties de hockey sur glace des Rebelles du Cégep de Sorel-Tracy.",
+    "cover": "portfolio/portfolio-56.jpg",
+    "images": [
+      {
+        "title": "Équipes et pointage du match en cours",
+        "local_path": "portfolio/portfolio-56.jpg"
+      },
+      {
+        "title": "Classement général dans la ligue",
+        "local_path": "portfolio/portfolio-57.jpg"
+      },
+      {
+        "title": "Statistiques du match en cours",
+        "local_path": "portfolio/portfolio-58.jpg"
+      },
+      {
+        "title": "Tableau pour les séries éliminatoires",
+        "local_path": "portfolio/portfolio-59.jpg"
+      },
+      {
+        "title": "Horaire des prochains matchs",
+        "local_path": "portfolio/portfolio-60.jpg"
+      },
+      {
+        "title": "Scène pour la pratique d'avant-match",
+        "local_path": "portfolio/portfolio-61.jpg"
+      },
+      {
+        "title": "Caméra pour les commentaires et analyses pendant les pauses et entractes",
+        "local_path": "portfolio/portfolio-62.jpg"
+      },
+      {
+        "title": "Visuel pendant la partie avec le tableau de pointage",
+        "local_path": "portfolio/portfolio-63.jpg"
+      },
+      {
+        "title": "Animation lors d'un but marqué",
+        "local_path": "portfolio/portfolio-64.jpg"
+      },
+      {
+        "title": "Visuel pour les reprises vidéo",
+        "local_path": "portfolio/portfolio-65.jpg"
+      }
+    ]
   }
 ];
