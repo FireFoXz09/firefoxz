@@ -118,19 +118,36 @@ const kitDetailGrid = document.getElementById('kit-detail-grid');
 let currentKitImages = [];
 let currentIndex = 0;
 
-// Extract the last (or only) year from a "years" string like "2022-2023" or "2026"
-// so kits can be sorted with the most recent / ongoing projects first.
-function getSortYear(yearsStr) {
+// Extract the start and end year from a "years" string like "2022-2023" or "2026",
+// so kits can be sorted with the most recent / ongoing projects first. When two kits
+// share the same end year, the one spanning a wider range (e.g. "2025-2026") is
+// considered more current than a single-year one (e.g. "2026").
+function getYearRange(yearsStr) {
   const matches = yearsStr.match(/\d{4}/g);
-  if (!matches) return 0;
-  return parseInt(matches[matches.length - 1], 10);
+  if (!matches) return { start: 0, end: 0 };
+  const nums = matches.map(n => parseInt(n, 10));
+  return { start: nums[0], end: nums[nums.length - 1] };
+}
+
+function compareKitsByYear(a, b) {
+  const rangeA = getYearRange(a.kit.years);
+  const rangeB = getYearRange(b.kit.years);
+
+  // 1. Most recent end year first
+  if (rangeB.end !== rangeA.end) return rangeB.end - rangeA.end;
+
+  // 2. Same end year: a single/narrower year (e.g. "2026") is considered more
+  // recent than a wider range (e.g. "2025-2026"), since it started later.
+  const spanA = rangeA.end - rangeA.start;
+  const spanB = rangeB.end - rangeB.start;
+  return spanA - spanB;
 }
 
 // Build a sorted list of {kit, originalIndex} so clicks still reference
 // the correct entry in the original portfolioKits array.
 const sortedKits = portfolioKits
   .map((kit, originalIndex) => ({ kit, originalIndex }))
-  .sort((a, b) => getSortYear(b.kit.years) - getSortYear(a.kit.years));
+  .sort(compareKitsByYear);
 
 // Build the grid of kit cards, most recent first
 sortedKits.forEach(({ kit, originalIndex }) => {
@@ -232,11 +249,17 @@ function openLightbox(index) {
   updateLightbox();
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Force a reflow so the opacity transition triggers reliably
+  void lightbox.offsetWidth;
+  lightbox.classList.add('visible');
 }
 
 function closeLightbox() {
-  lightbox.classList.remove('open');
+  lightbox.classList.remove('visible');
   document.body.style.overflow = '';
+  setTimeout(() => {
+    lightbox.classList.remove('open');
+  }, 300);
 }
 
 function navLightbox(direction) {

@@ -116,11 +116,17 @@ function openLightbox(index) {
   updateLightbox();
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Force a reflow so the opacity transition triggers reliably
+  void lightbox.offsetWidth;
+  lightbox.classList.add('visible');
 }
 
 function closeLightbox() {
-  lightbox.classList.remove('open');
+  lightbox.classList.remove('visible');
   document.body.style.overflow = '';
+  setTimeout(() => {
+    lightbox.classList.remove('open');
+  }, 300);
 }
 
 function navLightbox(direction) {
