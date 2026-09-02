@@ -1312,6 +1312,7 @@ section.dark h2 {
 }
 
 /* ---------- Voix & Casting page ---------- */
+.page-intro,
 .casting-intro {
   max-width: 720px;
   margin: 0 auto 50px;
