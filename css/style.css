@@ -1311,6 +1311,55 @@ section.dark h2 {
   text-align: center;
 }
 
+/* ---------- Voix & Casting page ---------- */
+.casting-intro {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.casting-category {
+  margin-bottom: 60px;
+}
+
+.casting-category:last-child {
+  margin-bottom: 0;
+}
+
+.casting-category h2 {
+  text-align: left;
+  border-left: 4px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 28px;
+}
+
+.casting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.casting-video-wrap {
+  background: #000;
+}
+
+.casting-video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border: 0;
+}
+
+.casting-video-caption {
+  color: var(--gray);
+  font-size: 0.88rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
 /* ---------- Contact ---------- */
 .contact-box {
   max-width: 600px;
