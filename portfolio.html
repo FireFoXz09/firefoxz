@@ -80,6 +80,8 @@
         <h2 id="kit-detail-title"></h2>
         <div class="kit-years" id="kit-detail-years"></div>
       </div>
+      <div class="kit-detail-description" id="kit-detail-description"></div>
+      <div class="kit-detail-videos" id="kit-detail-videos"></div>
       <div class="photo-grid" id="kit-detail-grid"></div>
     </div>
 
@@ -152,6 +154,31 @@ function openKitDetail(kitIndex) {
 
   kitDetailTitle.textContent = kit.name;
   kitDetailYears.textContent = kit.years;
+
+  // Optional long-form description for the kit (shown only if provided)
+  const descEl = document.getElementById('kit-detail-description');
+  if (kit.description) {
+    descEl.innerHTML = `<p>${kit.description}</p>`;
+    descEl.style.display = '';
+  } else {
+    descEl.innerHTML = '';
+    descEl.style.display = 'none';
+  }
+
+  // Optional embedded videos for the kit (shown only if provided)
+  const videosEl = document.getElementById('kit-detail-videos');
+  if (kit.videos && kit.videos.length > 0) {
+    videosEl.innerHTML = kit.videos.map(v => `
+      <div class="kit-video-wrap">
+        <iframe src="${v.embed_url}" title="${v.title || ''}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        ${v.title ? `<p class="kit-video-caption">${v.title}</p>` : ''}
+      </div>
+    `).join('');
+    videosEl.style.display = '';
+  } else {
+    videosEl.innerHTML = '';
+    videosEl.style.display = 'none';
+  }
 
   kitDetailGrid.innerHTML = '';
   kit.images.forEach((im, i) => {

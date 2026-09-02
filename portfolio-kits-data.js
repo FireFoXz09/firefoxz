@@ -1,7 +1,7 @@
 const portfolioKits = [
   {
     "name": "Rebelles du Cégep de Sorel-Tracy",
-    "years": "2024",
+    "years": "2024-2025",
     "cover": "portfolio/portfolio-01.png",
     "images": [
       {
@@ -32,7 +32,7 @@ const portfolioKits = [
   },
   {
     "name": "Eternal Esport League",
-    "years": "2025",
+    "years": "2025-2026",
     "cover": "portfolio/portfolio-07.jpg",
     "images": [
       {
@@ -63,7 +63,7 @@ const portfolioKits = [
   },
   {
     "name": "Balado GG BIEN JOUÉ",
-    "years": "2025",
+    "years": "2021-2026",
     "cover": "portfolio/portfolio-13.png",
     "images": [
       {
@@ -82,7 +82,7 @@ const portfolioKits = [
   },
   {
     "name": "Rebelles du Cégep de Sorel-Tracy",
-    "years": "2023",
+    "years": "2023-2024",
     "cover": "portfolio/portfolio-16.png",
     "images": [
       {
@@ -133,7 +133,7 @@ const portfolioKits = [
   },
   {
     "name": "Rebelles du Cégep de Sorel-Tracy",
-    "years": "2022",
+    "years": "2022-2023",
     "cover": "portfolio/portfolio-27.png",
     "images": [
       {
@@ -164,7 +164,7 @@ const portfolioKits = [
   },
   {
     "name": "Ligue Secondaire de Sports Électroniques (LSSE)",
-    "years": "2025",
+    "years": "2025-2026",
     "cover": "portfolio/portfolio-33.png",
     "images": [
       {
@@ -241,6 +241,38 @@ const portfolioKits = [
       {
         "title": "Résultat de la partie",
         "local_path": "portfolio/portfolio-49.jpg"
+      }
+    ]
+  },
+  {
+    "name": "NA RISE",
+    "years": "2026",
+    "description": "NA RISE est une ligue amateure de League of Legends pour l'Amérique du Nord, permettant à des équipes de tout niveau de jeu de s'inscrire et compétitionner. Le but du projet de diffusion était d'offrir un kit de diffusion simple mais propre pour offrir une visibilité aux équipes, mais aussi aux animateurs qui débutent ou veulent couvrir la ligue.",
+    "cover": "portfolio/portfolio-50.jpg",
+    "images": [
+      {
+        "title": "Écran d'attente",
+        "local_path": "portfolio/portfolio-50.jpg"
+      },
+      {
+        "title": "Sélection des champions",
+        "local_path": "portfolio/portfolio-51.jpg"
+      },
+      {
+        "title": "Alignement de départ des équipes",
+        "local_path": "portfolio/portfolio-52.jpg"
+      },
+      {
+        "title": "Écran des animateurs",
+        "local_path": "portfolio/portfolio-53.jpg"
+      },
+      {
+        "title": "Vue dans la partie",
+        "local_path": "portfolio/portfolio-54.jpg"
+      },
+      {
+        "title": "Statistiques d'après-match",
+        "local_path": "portfolio/portfolio-55.jpg"
       }
     ]
   }
